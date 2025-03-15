@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Pacific Force</title>
+    <meta name="description" content="Stay up to date with the latest news, announcements, and stories from Pacific Force esports team.">
+    <meta name="keywords" content="Pacific Force news, esports news, gaming news, team updates, tournament results">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pacificforce.com/news.html">
+    <meta property="og:title" content="News | Pacific Force">
+    <meta property="og:description" content="Stay up to date with the latest news, announcements, and stories from Pacific Force esports team.">
+    <meta property="og:image" content="https://pacificforce.com/img/Logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pacificforce.com/news.html">
+    <meta property="twitter:title" content="News | Pacific Force">
+    <meta property="twitter:description" content="Stay up to date with the latest news, announcements, and stories from Pacific Force esports team.">
+    <meta property="twitter:image" content="https://pacificforce.com/img/Logo.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* News Page Specific Styles */
+        .news-section {
+            padding: 80px 0;
+            background-color: #1E1E1E;
+        }
+        
+        .news-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: #000000;
+            color: #FFFFFF;
+            border: 2px solid #8A2BE2;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #8A2BE2;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .featured-news {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .featured-article {
+            background-color: #000000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .featured-article-img {
+            height: 300px;
+            position: relative;
+        }
+        
+        .featured-article-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-article-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(138, 43, 226, 0.8);
+            color: #FFFFFF;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .featured-article-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .featured-article-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+        
+        .featured-article-excerpt {
+            color: #D3D3D3;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .featured-article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #00FFFF;
+            font-size: 0.9rem;
+        }
+        
+        .news-card {
+            background-color: #000000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            will-change: transform;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .news-card-img {
+            height: 200px;
+            position: relative;
+        }
+        
+        .news-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .news-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(138, 43, 226, 0.8);
+            color: #FFFFFF;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .news-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+        
+        .news-excerpt {
+            color: #D3D3D3;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #00FFFF;
+            font-size: 0.9rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+        
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #000000;
+            color: #FFFFFF;
+            border-radius: 50%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            will-change: background-color;
+        }
+        
+        .page-link.active, .page-link:hover {
+            background-color: #8A2BE2;
+        }
+        
+        .newsletter-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/newsletter-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 30px auto 0;
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 30px;
+            background-color: #8A2BE2;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #6A5ACD;
+        }
+        
+        @media (max-width: 992px) {
+            .featured-news {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="progress-bar" id="scroll-progress"></div>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/Logo.png" alt="Pacific Force Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="news.html" class="active">News</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>LATEST <span class="highlight">NEWS</span></h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> / <span>News</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Content -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>PACIFIC FORCE <span class="highlight">NEWS</span></h2>
+                <p>Stay up to date with the latest news, announcements, and stories from Pacific Force.</p>
+            </div>
+
+            <!-- News Filters -->
+            <div class="news-filters">
+                <button class="filter-btn active" data-filter="all">All News</button>
+                <button class="filter-btn" data-filter="team">Team Updates</button>
+                <button class="filter-btn" data-filter="tournaments">Tournaments</button>
+                <button class="filter-btn" data-filter="partnerships">Partnerships</button>
+                <button class="filter-btn" data-filter="community">Community</button>
+            </div>
+
+            <!-- Featured News -->
+            <div class="featured-news">
+                <!-- Featured Article 1 -->
+                <div class="featured-article">
+                    <div class="featured-article-img">
+                        <img src="img/player-placeholder.jpg" alt="Pacific Force Wins Championship" loading="lazy">
+                        <div class="featured-article-category">Tournaments</div>
+                    </div>
+                    <div class="featured-article-content">
+                        <h3 class="featured-article-title">Pacific Force Valorant Team Wins Regional Championship</h3>
+                        <p class="featured-article-excerpt">Our Valorant roster dominated the competition at the Regional Championship, securing a flawless victory and qualifying for the International Masters tournament. The team showed exceptional coordination and strategic depth throughout the event.</p>
+                        <div class="featured-article-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> March 12, 2025</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Article 2 -->
+                <div class="featured-article">
+                    <div class="featured-article-img">
+                        <img src="img/player-placeholder.jpg" alt="New Partnership Announcement" loading="lazy">
+                        <div class="featured-article-category">Partnerships</div>
+                    </div>
+                    <div class="featured-article-content">
+                        <h3 class="featured-article-title">Pacific Force Announces Major Partnership with Tech Giant</h3>
+                        <p class="featured-article-excerpt">We're thrilled to announce our new partnership with a leading technology company. This collaboration will provide our players with cutting-edge equipment and support our continued growth in the competitive esports landscape.</p>
+                        <div class="featured-article-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> March 8, 2025</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="img/player-placeholder.jpg" alt="New Player Signing" loading="lazy">
+                        <div class="news-category">Team Updates</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Pacific Force Welcomes New League of Legends Mid Laner</h3>
+                        <p class="news-excerpt">We're excited to announce the addition of Carlos "Magician" Mendez to our League of Legends roster. Carlos brings years of competitive experience and will be taking on the mid lane position.</p>
+                        <div class="news-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> March 5, 2025</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- News Card 2 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="img/player-placeholder.jpg" alt="Community Event" loading="lazy">
+                        <div class="news-category">Community</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Pacific Force Hosts Fan Meet & Greet Event</h3>
+                        <p class="news-excerpt">Join us for an exclusive fan meet & greet event with the Pacific Force players. Get autographs, take photos, and participate in friendly matches with your favorite esports athletes.</p>
+                        <div class="news-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> February 28, 2025</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- News Card 3 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="img/player-placeholder.jpg" alt="Tournament Qualification" loading="lazy">
+                        <div class="news-category">Tournaments</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">PUBG Team Qualifies for International Championship</h3>
+                        <p class="news-excerpt">Our PUBG squad has secured their spot in the upcoming International Championship after an impressive performance in the qualifiers. The team will be competing against the world's best next month.</p>
+                        <div class="news-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> February 22, 2025</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- News Card 4 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="img/player-placeholder.jpg" alt="Training Facility" loading="lazy">
+                        <div class="news-category">Team Updates</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Pacific Force Unveils State-of-the-Art Training Facility</h3>
+                        <p class="news-excerpt">We're proud to announce the opening of our new training facility, equipped with the latest technology and amenities to support our players' development and performance.</p>
+                        <div class="news-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> February 15, 2025</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- News Card 5 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="img/player-placeholder.jpg" alt="Charity Stream" loading="lazy">
+                        <div class="news-category">Community</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Pacific Force Charity Stream Raises $50,000 for Education</h3>
+                        <p class="news-excerpt">Our 24-hour charity stream was a huge success, raising $50,000 for educational programs in underserved communities. Thank you to all the fans who donated and supported this initiative.</p>
+                        <div class="news-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> February 8, 2025</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- News Card 6 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="img/player-placeholder.jpg" alt="Merchandise Launch" loading="lazy">
+                        <div class="news-category">Partnerships</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">New Pacific Force Merchandise Collection Launches Next Week</h3>
+                        <p class="news-excerpt">Get ready for our new merchandise collection dropping next week! The collection features jerseys, hoodies, and accessories designed in collaboration with a renowned streetwear brand.</p>
+                        <div class="news-meta">
+                            <span class="date"><i class="far fa-calendar-alt"></i> February 1, 2025</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>SUBSCRIBE TO OUR <span class="highlight">NEWSLETTER</span></h2>
+                <p>Stay updated with the latest news, match results, and exclusive content from Pacific Force.</p>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your Email Address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/Logo.png" alt="Pacific Force Logo">
+                    <p>Pacific Force Esports Team</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitch"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates.</p>
+                    <form>
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pacific Force. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Filter functionality for news
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const newsCards = document.querySelectorAll('.news-card');
+            const featuredArticles = document.querySelectorAll('.featured-article');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filter news cards
+                    if (filter === 'all') {
+                        // Show all cards
+                        newsCards.forEach(card => card.style.display = 'flex');
+                        featuredArticles.forEach(article => article.style.display = 'flex');
+                    } else {
+                        // Filter cards by category
+                        newsCards.forEach(card => {
+                            const category = card.querySelector('.news-category').textContent.toLowerCase();
+                            if (category.includes(filter.toLowerCase())) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        
+                        // Filter featured articles
+                        featuredArticles.forEach(article => {
+                            const category = article.querySelector('.featured-article-category').textContent.toLowerCase();
+                            if (category.includes(filter.toLowerCase())) {
+                                article.style.display = 'flex';
+                            } else {
+                                article.style.display = 'none';
+                            }
+                        });
+                    }
+                    
+                    // Save filter preference in localStorage
+                    localStorage.setItem('activeNewsFilter', filter);
+                });
+            });
+            
+            // Check if there's a saved preference
+            const savedFilter = localStorage.getItem('activeNewsFilter');
+            if (savedFilter) {
+                const filterToActivate = document.querySelector(`.filter-btn[data-filter="${savedFilter}"]`);
+                if (filterToActivate) filterToActivate.click();
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</body>
+</html>
+

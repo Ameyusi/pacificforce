@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sponsors | Pacific Force</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional Sponsors Page Styles */
+        .sponsors-hero {
+            padding: 100px 0;
+            background-color: #000000;
+            text-align: center;
+        }
+        
+        .sponsors-hero h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .sponsors-hero p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #D3D3D3;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .sponsors-categories {
+            padding: 100px 0;
+            background-color: #1E1E1E;
+        }
+        
+        .sponsor-category {
+            margin-bottom: 80px;
+        }
+        
+        .sponsor-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .category-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .category-title h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .category-title h3::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #8A2BE2;
+        }
+        
+        .platinum-sponsors {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .platinum-sponsor {
+            width: 300px;
+            background-color: #000000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .platinum-sponsor:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.3);
+        }
+        
+        .platinum-sponsor-logo {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+            padding: 30px;
+        }
+        
+        .platinum-sponsor-logo img {
+            max-width: 100%;
+            max-height: 140px;
+            object-fit: contain;
+        }
+        
+        .platinum-sponsor-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .platinum-sponsor-info h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+        
+        .platinum-sponsor-info p {
+            color: #D3D3D3;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .gold-sponsors,
+        .silver-sponsors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        
+        .gold-sponsor,
+        .silver-sponsor {
+            background-color: #000000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .gold-sponsor:hover,
+        .silver-sponsor:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gold-sponsor-logo,
+        .silver-sponsor-logo {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+            padding: 20px;
+        }
+        
+        .gold-sponsor-logo img,
+        .silver-sponsor-logo img {
+            max-width: 100%;
+            max-height: 110px;
+            object-fit: contain;
+        }
+        
+        .gold-sponsor-info,
+        .silver-sponsor-info {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .gold-sponsor-info h4,
+        .silver-sponsor-info h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+        
+        .gold-sponsor-info p,
+        .silver-sponsor-info p {
+            color: #D3D3D3;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .sponsor-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        
+        .platinum-badge {
+            background-color: rgba(229, 228, 226, 0.2);
+            color: #E5E4E2;
+        }
+        
+        .gold-badge {
+            background-color: rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+        }
+        
+        .silver-badge {
+            background-color: rgba(192, 192, 192, 0.2);
+            color: #C0C0C0;
+        }
+        
+        .partnership-cta {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/partnership-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .partnership-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(138, 43, 226, 0.3), rgba(0, 255, 255, 0.3));
+        }
+        
+        .partnership-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .partnership-content h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .partnership-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #D3D3D3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="progress-bar" id="scroll-progress"></div>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo-placeholder.png" alt="Pacific Force Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="sponsors.html" class="active">Sponsors</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>OUR <span class="highlight">SPONSORS</span></h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> / <span>Sponsors</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Hero Section -->
+    <section class="sponsors-hero">
+        <div class="container">
+            <h2>THE PARTNERS BEHIND OUR <span class="highlight">SUCCESS</span></h2>
+            <p>Pacific Force is proud to partner with industry-leading brands that share our passion for excellence and innovation. Our sponsors provide the support and resources that enable our teams to compete at the highest level of esports. We are grateful for their commitment to our organization and the esports community.</p>
+            <a href="#partnership" class="btn btn-primary">Become a Partner</a>
+        </div>
+    </section>
+
+    <!-- Sponsors Categories Section -->
+    <section class="sponsors-categories">
+        <div class="container">
+            <!-- Platinum Sponsors -->
+            <div class="sponsor-category">
+                <div class="category-title">
+                    <h3>Platinum Partners</h3>
+                </div>
+                
+                <div class="platinum-sponsors">
+                    <!-- Platinum Sponsor 1 -->
+                    <div class="platinum-sponsor">
+                        <div class="platinum-sponsor-logo">
+                            <img src="img/intel.png" alt="Intel Logo">
+                        </div>
+                        <div class="platinum-sponsor-info">
+                            <span class="sponsor-badge platinum-badge">Platinum Partner</span>
+                            <h4>Intel</h4>
+                            <p>Intel provides Pacific Force with cutting-edge processors and technology, powering our gaming rigs and training facilities to ensure our players have the competitive edge they need.</p>
+                            <a href="https://www.intel.com" target="_blank" class="btn btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Platinum Sponsor 2 -->
+                    <div class="platinum-sponsor">
+                        <div class="platinum-sponsor-logo">
+                            <img src="img/nike.png" alt="Nike Logo">
+                        </div>
+                        <div class="platinum-sponsor-info">
+                            <span class="sponsor-badge platinum-badge">Platinum Partner</span>
+                            <h4>Nike</h4>
+                            <p>Nike is our official apparel partner, providing our players with high-performance gaming wear and lifestyle clothing designed for comfort during long training sessions and tournaments.</p>
+                            <a href="https://www.nike.com" target="_blank" class="btn btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gold Sponsors -->
+            <div class="sponsor-category">
+                <div class="category-title">
+                    <h3>Gold Partners</h3>
+                </div>
+                
+                <div class="gold-sponsors">
+                    <!-- Gold Sponsor 1 -->
+                    <div class="gold-sponsor">
+                        <div class="gold-sponsor-logo">
+                            <img src="img/rb.png" alt="Red Bull Logo">
+                        </div>
+                        <div class="gold-sponsor-info">
+                            <span class="sponsor-badge gold-badge">Gold Partner</span>
+                            <h4>Red Bull</h4>
+                            <p>Red Bull fuels our players' performance and endurance during intense competitions and training sessions.</p>
+                            <a href="https://www.redbull.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Gold Sponsor 2 -->
+                    <div class="gold-sponsor">
+                        <div class="gold-sponsor-logo">
+                            <img src="img/hsbc.png" alt="HSBC Logo">
+                        </div>
+                        <div class="gold-sponsor-info">
+                            <span class="sponsor-badge gold-badge">Gold Partner</span>
+                            <h4>HSBC</h4>
+                            <p>HSBC provides financial support and services to help Pacific Force manage global operations and player contracts.</p>
+                            <a href="https://www.hsbc.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Gold Sponsor 3 -->
+                    <div class="gold-sponsor">
+                        <div class="gold-sponsor-logo">
+                            <img src="img/oracle.png" alt="Oracle Logo">
+                        </div>
+                        <div class="gold-sponsor-info">
+                            <span class="sponsor-badge gold-badge">Gold Partner</span>
+                            <h4>Oracle</h4>
+                            <p>Oracle's cloud infrastructure and data analytics help us optimize player performance and strategy development.</p>
+                            <a href="https://www.oracle.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Gold Sponsor 4 -->
+                    <div class="gold-sponsor">
+                        <div class="gold-sponsor-logo">
+                            <img src="img/mb.png" alt="Mercedes-Benz Logo">
+                        </div>
+                        <div class="gold-sponsor-info">
+                            <span class="sponsor-badge gold-badge">Gold Partner</span>
+                            <h4>Mercedes-Benz</h4>
+                            <p>Mercedes-Benz provides transportation for our teams and supports our global tournament travel needs.</p>
+                            <a href="https://www.mercedes-benz.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Silver Sponsors -->
+            <div class="sponsor-category">
+                <div class="category-title">
+                    <h3>Silver Partners</h3>
+                </div>
+                
+                <div class="silver-sponsors">
+                    <!-- Silver Sponsor 1 -->
+                    <div class="silver-sponsor">
+                        <div class="silver-sponsor-logo">
+                            <img src="img/sk.png" alt="SK Telecom Logo">
+                        </div>
+                        <div class="silver-sponsor-info">
+                            <span class="sponsor-badge silver-badge">Silver Partner</span>
+                            <h4>SK Telecom</h4>
+                            <p>Providing high-speed connectivity for our training facilities and events.</p>
+                            <a href="https://www.sktelecom.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Silver Sponsor 2 -->
+                    <div class="silver-sponsor">
+                        <div class="silver-sponsor-logo">
+                            <img src="img/sl.png" alt="Logitech Logo">
+                        </div>
+                        <div class="silver-sponsor-info">
+                            <span class="sponsor-badge silver-badge">Silver Partner</span>
+                            <h4>Logitech G</h4>
+                            <p>Supplying our players with premium gaming peripherals and equipment.</p>
+                            <a href="https://www.logitechg.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Silver Sponsor 3 -->
+                    <div class="silver-sponsor">
+                        <div class="silver-sponsor-logo">
+                            <img src="img/visa.png" alt="Visa Logo">
+                        </div>
+                        <div class="silver-sponsor-info">
+                            <span class="sponsor-badge silver-badge">Silver Partner</span>
+                            <h4>Visa</h4>
+                            <p>Collaborative partner for training camps and knowledge exchange programs.</p>
+                            <a href="https://www.visa.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Silver Sponsor 4 -->
+                    <div class="silver-sponsor">
+                        <div class="silver-sponsor-logo">
+                            <img src="img/msi.png" alt="Gen.G Logo">
+                        </div>
+                        <div class="silver-sponsor-info">
+                            <span class="sponsor-badge silver-badge">Silver Partner</span>
+                            <h4>MSI</h4>
+                            <p>Strategic partner for Asian market expansion and talent development.</p>
+                            <a href="https://www.msi.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Silver Sponsor 5 -->
+                    <div class="silver-sponsor">
+                        <div class="silver-sponsor-logo">
+                            <img src="img/logitech.png" alt="Logitech Logo">
+                        </div>
+                        <div class="silver-sponsor-info">
+                            <span class="sponsor-badge silver-badge">Silver Partner</span>
+                            <h4>Logitech</h4>
+                            <p>Collaborative partner for Korean esports initiatives and events.</p>
+                            <a href="https://www.logitech.com" target="_blank" class="btn btn-small btn-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership CTA Section -->
+    <section id="partnership" class="partnership-cta">
+        <div class="container">
+            <div class="partnership-content">
+                <h2>BECOME A <span class="highlight">PARTNER</span></h2>
+                <p>Join the Pacific Force family and connect your brand with our passionate global fanbase. We offer customized partnership opportunities that align with your marketing objectives and provide meaningful engagement with the esports community.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <a href="#" class="btn btn-secondary">Download Partnership Deck</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/logo-placeholder.png" alt="Pacific Force Logo">
+                    <p>Pacific Force is a professional esports organization competing in PUBG, League of Legends, and Valorant.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitch"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pacific Force. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const emailInput = this.querySelector('input[type="email"]');
+                    const email = emailInput.value.trim();
+                    
+                    if (email) {
+                        // In a real implementation, you would send this to your backend
+                        alert('Thank you for subscribing to our newsletter!');
+                        emailInput.value = '';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</body>
+</html> 
+

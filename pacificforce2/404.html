@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Pacific Force</title>
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .error-page {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .error-content {
+            max-width: 600px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            margin-bottom: 20px;
+            color: #8A2BE2;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
+        
+        .error-message {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+        
+        .error-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #D3D3D3;
+        }
+        
+        .error-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-message {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-message">Page Not Found</h1>
+            <p class="error-description">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Please check the URL or navigate back to the homepage.</p>
+            <div class="error-buttons">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Track 404 errors
+        if (typeof ga === 'function') {
+            ga('send', 'event', '404 Error', document.location.pathname + document.location.search);
+        }
+        
+        // Suggest related pages based on the URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const errorDescription = document.querySelector('.error-description');
+            
+            if (path.includes('team') || path.includes('player')) {
+                errorDescription.innerHTML += '<br><br>Looking for our team? <a href="team.html" style="color: #00FFFF;">Check out our team page</a>.';
+            } else if (path.includes('news') || path.includes('blog')) {
+                errorDescription.innerHTML += '<br><br>Looking for news? <a href="news.html" style="color: #00FFFF;">Check out our news page</a>.';
+            } else if (path.includes('match') || path.includes('game') || path.includes('tournament')) {
+                errorDescription.innerHTML += '<br><br>Looking for our matches? <a href="schedule.html" style="color: #00FFFF;">Check out our schedule page</a>.';
+            }
+        });
+    </script>
+</body>
+</html> 

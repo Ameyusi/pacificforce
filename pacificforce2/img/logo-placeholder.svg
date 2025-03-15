@@ -1,0 +1,25 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="150" cy="150" r="140" fill="#000000" stroke="#8A2BE2" stroke-width="6"/>
+    
+    <!-- Inner Circle with Gradient -->
+    <circle cx="150" cy="150" r="110" fill="url(#gradient)"/>
+    
+    <!-- P Letter -->
+    <path d="M90,75 L90,225 L120,225 L120,165 L150,165 C180,165 195,142.5 195,120 C195,97.5 180,75 150,75 Z" 
+          fill="#FFFFFF" stroke="#00FFFF" stroke-width="3"/>
+    <path d="M120,105 L150,105 C157.5,105 165,112.5 165,120 C165,127.5 157.5,135 150,135 L120,135 Z" 
+          fill="#000000"/>
+    
+    <!-- F Letter -->
+    <path d="M210,75 L210,225 L240,225 L240,165 L270,165 L270,135 L240,135 L240,105 L270,105 L270,75 Z" 
+          fill="#FFFFFF" stroke="#00FFFF" stroke-width="3"/>
+    
+    <!-- Define gradient -->
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#191970" />
+            <stop offset="100%" stop-color="#6A5ACD" />
+        </linearGradient>
+    </defs>
+</svg> 

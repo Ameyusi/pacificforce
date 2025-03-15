@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Schedule | Pacific Force</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="progress-bar" id="scroll-progress"></div>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/Logo.png" alt="Pacific Force Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="schedule.html" class="active">Schedule</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>MATCH <span class="highlight">SCHEDULE</span></h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> / <span>Schedule</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Filter Section -->
+    <section class="schedule-filter">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="game-filter">Game:</label>
+                    <select id="game-filter" class="filter-select">
+                        <option value="all">All Games</option>
+                        <option value="pubg">PUBG</option>
+                        <option value="lol">League of Legends</option>
+                        <option value="valorant">Valorant</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="month-filter">Month:</label>
+                    <select id="month-filter" class="filter-select">
+                        <option value="all">All Months</option>
+                        <option value="june">June 2023</option>
+                        <option value="july">July 2023</option>
+                        <option value="august">August 2023</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="tournament-filter">Tournament:</label>
+                    <select id="tournament-filter" class="filter-select">
+                        <option value="all">All Tournaments</option>
+                        <option value="vct">Valorant Champions Tour</option>
+                        <option value="lcs">League Championship Series</option>
+                        <option value="pgs">PUBG Global Series</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Matches Section -->
+    <section class="schedule-section">
+        <div class="container">
+            <h2 class="section-title">UPCOMING <span class="highlight">MATCHES</span></h2>
+            
+            <div class="schedule-container">
+                <!-- June Matches -->
+                <div class="schedule-month">
+                    <h3 class="month-title">June 2023</h3>
+                    
+                    <div class="match-card" data-game="valorant" data-tournament="vct">
+                        <div class="match-date">
+                            <span class="day">20</span>
+                            <span class="month">JUN</span>
+                            <span class="time">18:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/sen.png" alt="Sentinels">
+                                <span>Sentinels</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">VCT</div>
+                            <div class="match-location">Online</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-game="lol" data-tournament="lcs">
+                        <div class="match-date">
+                            <span class="day">22</span>
+                            <span class="month">JUN</span>
+                            <span class="time">15:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/c9.png" alt="Cloud9">
+                                <span>Cloud9</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">LCS</div>
+                            <div class="match-location">Los Angeles, CA</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-game="pubg" data-tournament="pgs">
+                        <div class="match-date">
+                            <span class="day">25</span>
+                            <span class="month">JUN</span>
+                            <span class="time">20:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/fnc.png" alt="Fnatic">
+                                <span>Fnatic</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">PUBG Global Series</div>
+                            <div class="match-location">Online</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-game="valorant" data-tournament="vct">
+                        <div class="match-date">
+                            <span class="day">28</span>
+                            <span class="month">JUN</span>
+                            <span class="time">19:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/gambit.png" alt="Gambit">
+                                <span>Gambit Esports</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">VCT</div>
+                            <div class="match-location">Online</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- July Matches -->
+                <div class="schedule-month">
+                    <h3 class="month-title">July 2023</h3>
+                    
+                    <div class="match-card" data-game="lol" data-tournament="lcs">
+                        <div class="match-date">
+                            <span class="day">05</span>
+                            <span class="month">JUL</span>
+                            <span class="time">17:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/100t.png" alt="100 Thieves">
+                                <span>100 Thieves</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">LCS</div>
+                            <div class="match-location">Los Angeles, CA</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-game="pubg" data-tournament="pgs">
+                        <div class="match-date">
+                            <span class="day">10</span>
+                            <span class="month">JUL</span>
+                            <span class="time">19:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/flc.png" alt="Team Falcons">
+                                <span>Team Falcons</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">PUBG Global Series</div>
+                            <div class="match-location">Online</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-game="valorant" data-tournament="vct">
+                        <div class="match-date">
+                            <span class="day">15</span>
+                            <span class="month">JUL</span>
+                            <span class="time">16:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/liquid.png" alt="Liquid">
+                                <span>Team Liquid</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">VCT</div>
+                            <div class="match-location">Online</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- August Matches -->
+                <div class="schedule-month">
+                    <h3 class="month-title">August 2023</h3>
+                    
+                    <div class="match-card" data-game="lol" data-tournament="lcs">
+                        <div class="match-date">
+                            <span class="day">02</span>
+                            <span class="month">AUG</span>
+                            <span class="time">18:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/blg.png" alt="BLG">
+                                <span>Bilibili Gaming</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">LCS</div>
+                            <div class="match-location">Los Angeles, CA</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-game="pubg" data-tournament="pgs">
+                        <div class="match-date">
+                            <span class="day">08</span>
+                            <span class="month">AUG</span>
+                            <span class="time">20:00 PST</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team team-home">
+                                <img src="img/Logo.png" alt="Pacific Force">
+                                <span>Pacific Force</span>
+                            </div>
+                            <div class="match-vs">VS</div>
+                            <div class="team team-away">
+                                <img src="img/madcat.png" alt="Madcat">
+                                <span>MadCatz Esports</span>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-tournament">PUBG Global Series</div>
+                            <div class="match-location">Online</div>
+                            <a href="#" class="btn btn-small">Watch Live</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <h2 class="section-title">PAST <span class="highlight">RESULTS</span></h2>
+            
+            <div class="results-container">
+                <div class="results-table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Tournament</th>
+                                <th>Opponent</th>
+                                <th>Game</th>
+                                <th>Result</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="win">
+                                <td>May 30, 2023</td>
+                                <td>Valorant Champions Tour</td>
+                                <td>Team Alpha</td>
+                                <td>Valorant</td>
+                                <td><span class="result-badge win">WIN</span></td>
+                                <td>13-8</td>
+                            </tr>
+                            <tr class="loss">
+                                <td>May 25, 2023</td>
+                                <td>League Championship Series</td>
+                                <td>Nexus Gaming</td>
+                                <td>League of Legends</td>
+                                <td><span class="result-badge loss">LOSS</span></td>
+                                <td>1-2</td>
+                            </tr>
+                            <tr class="win">
+                                <td>May 20, 2023</td>
+                                <td>PUBG Global Series</td>
+                                <td>Phantom Esports</td>
+                                <td>PUBG</td>
+                                <td><span class="result-badge win">WIN</span></td>
+                                <td>1st Place</td>
+                            </tr>
+                            <tr class="win">
+                                <td>May 15, 2023</td>
+                                <td>Valorant Champions Tour</td>
+                                <td>Eclipse Gaming</td>
+                                <td>Valorant</td>
+                                <td><span class="result-badge win">WIN</span></td>
+                                <td>13-10</td>
+                            </tr>
+                            <tr class="win">
+                                <td>May 10, 2023</td>
+                                <td>League Championship Series</td>
+                                <td>Titan Esports</td>
+                                <td>League of Legends</td>
+                                <td><span class="result-badge win">WIN</span></td>
+                                <td>2-0</td>
+                            </tr>
+                            <tr class="loss">
+                                <td>May 05, 2023</td>
+                                <td>PUBG Global Series</td>
+                                <td>Vortex Gaming</td>
+                                <td>PUBG</td>
+                                <td><span class="result-badge loss">LOSS</span></td>
+                                <td>3rd Place</td>
+                            </tr>
+                            <tr class="win">
+                                <td>April 30, 2023</td>
+                                <td>Valorant Champions Tour</td>
+                                <td>Nova Esports</td>
+                                <td>Valorant</td>
+                                <td><span class="result-badge win">WIN</span></td>
+                                <td>13-7</td>
+                            </tr>
+                            <tr class="loss">
+                                <td>April 25, 2023</td>
+                                <td>League Championship Series</td>
+                                <td>Quantum Gaming</td>
+                                <td>League of Legends</td>
+                                <td><span class="result-badge loss">LOSS</span></td>
+                                <td>0-2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>NEVER MISS A <span class="highlight">MATCH</span></h2>
+                <p>Subscribe to our newsletter to receive match reminders and updates directly to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/Logo.png" alt="Pacific Force Logo">
+                    <p>Pacific Force Esports Club.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitch"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pacific Force. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const gameFilter = document.getElementById('game-filter');
+            const monthFilter = document.getElementById('month-filter');
+            const tournamentFilter = document.getElementById('tournament-filter');
+            const matchCards = document.querySelectorAll('.match-card');
+            const scheduleMonths = document.querySelectorAll('.schedule-month');
+            
+            function applyFilters() {
+                const gameValue = gameFilter.value;
+                const monthValue = monthFilter.value;
+                const tournamentValue = tournamentFilter.value;
+                
+                // Reset visibility
+                scheduleMonths.forEach(month => {
+                    month.style.display = 'block';
+                });
+                
+                // Filter matches
+                matchCards.forEach(card => {
+                    const gameMatch = gameValue === 'all' || card.dataset.game === gameValue;
+                    const tournamentMatch = tournamentValue === 'all' || card.dataset.tournament === tournamentValue;
+                    
+                    // Month filtering is handled differently since it's based on parent element
+                    card.style.display = gameMatch && tournamentMatch ? 'flex' : 'none';
+                });
+                
+                // Hide empty months
+                scheduleMonths.forEach(month => {
+                    const visibleMatches = month.querySelectorAll('.match-card[style="display: flex;"]');
+                    if (visibleMatches.length === 0) {
+                        month.style.display = 'none';
+                    }
+                    
+                    // Month specific filtering
+                    if (monthValue !== 'all') {
+                        const monthTitle = month.querySelector('.month-title').textContent.toLowerCase();
+                        if (!monthTitle.includes(monthValue)) {
+                            month.style.display = 'none';
+                        }
+                    }
+                });
+            }
+            
+            // Add event listeners to filters
+            gameFilter.addEventListener('change', applyFilters);
+            monthFilter.addEventListener('change', applyFilters);
+            tournamentFilter.addEventListener('change', applyFilters);
+            
+            // Newsletter form submission
+            const newsletterForms = document.querySelectorAll('.newsletter-form');
+            
+            newsletterForms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const emailInput = this.querySelector('input[type="email"]');
+                    const email = emailInput.value.trim();
+                    
+                    if (email) {
+                        // In a real implementation, you would send this to your backend
+                        alert('Thank you for subscribing to our newsletter!');
+                        emailInput.value = '';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</body>
+</html> 
+
